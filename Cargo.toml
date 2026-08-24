@@ -1,0 +1,30 @@
+[package]
+name = "smart-dynamic-gravity-tsp"
+version = "0.1.0"
+edition = "2024"
+authors = ["Alexander Suvorov (smartlegionlab) <smartlegionlab@gmail.com>"]
+description = "A high-performance Rust library for solving the Traveling Salesman Problem (TSP) using the novel Dynamic Gravity algorithm."
+license = "BSD-3-Clause"
+repository = "https://github.com/smartlegionlab/smart-dynamic-gravity-tsp-rs"
+readme = "README.md"
+keywords = ["tsp", "optimization", "heuristic", "dynamic-gravity", "traveling-salesman"]
+categories = ["algorithms", "science"]
+documentation = "https://docs.rs/smart-dynamic-gravity-tsp"
+
+[lib]
+name = "smart_dynamic_gravity_tsp"
+
+[[example]]
+name = "basic"
+path = "examples/basic.rs"
+
+[[example]]
+name = "compare"
+path = "examples/compare.rs"
+
+[dev-dependencies]
+criterion = "0.5"
+
+[[bench]]
+name = "benchmark"
+harness = false
