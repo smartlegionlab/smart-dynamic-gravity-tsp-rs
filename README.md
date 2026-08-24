@@ -64,14 +64,14 @@ A novel physics-inspired heuristic that simulates attraction and inertia:
 
 ### Parameters
 
-| Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
-| `delta` | f64 | 0.9 | Inertia coefficient (higher = more inertia) |
-| `post_optimize` | bool | true | Enable 2-opt optimization |
-| `max_2opt_iter` | usize | 100 | Maximum 2-opt iterations |
-| `angle_penalty_weight` | f64 | 0.3 | Penalty for sharp turns |
-| `use_angle_penalty` | bool | true | Enable/disable angle penalty |
-| `_2opt_window` | usize | 50 | Search window for 2-opt |
+| Parameter              | Type  | Default | Description                                 |
+|------------------------|-------|---------|---------------------------------------------|
+| `delta`                | f64   | 0.9     | Inertia coefficient (higher = more inertia) |
+| `post_optimize`        | bool  | true    | Enable 2-opt optimization                   |
+| `max_2opt_iter`        | usize | 100     | Maximum 2-opt iterations                    |
+| `angle_penalty_weight` | f64   | 0.3     | Penalty for sharp turns                     |
+| `use_angle_penalty`    | bool  | true    | Enable/disable angle penalty                |
+| `_2opt_window`         | usize | 50      | Search window for 2-opt                     |
 
 ## Performance
 
@@ -115,10 +115,10 @@ COMPARISON
 ========================================================================
 ```
 
-| Algorithm | Distance | Time (1000 cities) | Speedup vs Greedy | Complexity |
-|-----------|----------|-------------------|-------------------|------------|
-| **Dynamic Gravity** | **13,291.14** | **0.082s** | **110x faster** 🚀 | O(n²) |
-| Greedy (baseline) | 13,695.34 | 9.107s | 1x (baseline) | O(n²) |
+| Algorithm           | Distance      | Time (1000 cities) | Speedup vs Greedy  | Complexity |
+|---------------------|---------------|--------------------|--------------------|------------|
+| **Dynamic Gravity** | **13,291.14** | **0.082s**         | **110x faster** 🚀 | O(n²)      |
+| Greedy (baseline)   | 13,695.34     | 9.107s             | 1x (baseline)      | O(n²)      |
 
 **Key insight:** Both algorithms have **O(n²)** complexity, but Dynamic Gravity is **110x faster** while also producing **better quality solutions** (3.0% improvement). This is achieved through:
 - Avoiding expensive `sqrt()` operations in the main loop
@@ -178,13 +178,15 @@ cargo bench
 
 This library is part of the [**NP Problem Ecosystem**](https://smartlegionlab.com/ecosystems.html) - a comprehensive suite of exact and heuristic solvers for the Traveling Salesman Problem:
 
-| Project | Description | Language |
-|---------|-------------|----------|
-| **[Exact TSP Solver](https://github.com/smartlegionlab/exact-tsp-solver)** | High-performance exact solver using Branch and Bound | Go |
-| **[Smart TSP Oracle](https://github.com/smartlegionlab/smart-tsp-oracle)** | Exact solver with adaptive thresholding | Python |
-| **[Smart TSP Solver](https://github.com/smartlegionlab/smart-tsp-solver)** | Heuristic solver with Angular-Radial & Dynamic Gravity | Python |
-| **[Smart TSP Benchmark](https://github.com/smartlegionlab/smart-tsp-benchmark)** | Professional testing infrastructure | Python |
-| **smart-dynamic-gravity-tsp** | High-performance Rust library for TSP | Rust |
+| Project                                                                          | Description                                            | Language |
+|----------------------------------------------------------------------------------|--------------------------------------------------------|----------|
+| **[Exact TSP Solver](https://github.com/smartlegionlab/exact-tsp-solver)**       | High-performance exact solver using Branch and Bound   | Go       |
+| **[Smart TSP Oracle](https://github.com/smartlegionlab/smart-tsp-oracle)**       | Exact solver with adaptive thresholding                | Python   |
+| **[Smart TSP Solver](https://github.com/smartlegionlab/smart-tsp-solver)**       | Heuristic solver with Angular-Radial & Dynamic Gravity | Python   |
+| **[Smart TSP Benchmark](https://github.com/smartlegionlab/smart-tsp-benchmark)** | Professional testing infrastructure                    | Python   |
+| **[smart-pch-tsp](https://github.com/smartlegionlab/smart-pch-tsp-rs)**          | Universal PCH path improver                            | Rust     |
+| **smart-dynamic-gravity-tsp**                                                    | High-performance Rust library for TSP                  | Rust     |
+
 
 All projects are grounded in the [**Position-Candidate-Hypothesis (PCH)**](https://smartlegionlab.com/research.html) paradigm for NP-complete problems.
 
@@ -204,8 +206,8 @@ cargo build
 cargo test
 
 # Run examples
-cargo run --example basic
-cargo run --example compare
+cargo run --example basic --release
+cargo run --example compare --release
 
 # Run benchmarks
 cargo bench
